@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MeliReader-core</string>
+    <string name="tip_empty">暂无相关数据</string>
+    <string name="tip_error">发生错误啦┭┮﹏┭┮</string>
+    <string name="tips_edit_tag">编辑标签</string>
+    <string name="tips_delete_collection">删除收藏</string>
+    <string name="tips_confirm">确认</string>
+    <string name="tips_cancel">取消</string>
+    <string name="tips_text_size_small">小</string>
+    <string name="tips_text_size_middle">中</string>
+    <string name="tips_text_size_big">大</string>
+    <string name="tips_text_size_super_big">特大</string>
+
+    <string name="tips_collected_success">
+        <Data><![CDATA[收藏成功，<font color="#e84e40">点击添加标签</font>]]></Data>
+    </string>
+</resources>

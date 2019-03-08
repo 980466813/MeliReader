@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/md_white">
+
+    <android.support.v7.widget.AppCompatRadioButton
+        android:id="@+id/adapter_collection_contrary_rb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:button="@drawable/selector_contrary_rb"
+        android:maxHeight="@dimen/dp_40"
+        android:maxWidth="@dimen/dp_40"
+        android:paddingEnd="@dimen/dp_12"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/adapter_news_container_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/dp_12"
+        android:paddingStart="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintStart_toEndOf="@id/adapter_collection_contrary_rb">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_news_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:lines="3"
+            android:paddingEnd="@dimen/dp_5"
+            android:textColor="@color/md_black_300"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toStartOf="@id/adapter_news_image_iv"
+            app:layout_constraintHorizontal_weight="7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="皮特朱失恋无心直播，Lisa见状让曾小贤救场，结果却笑料百出" />
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_news_image_iv"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/dp_12"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_70"
+            android:maxWidth="@dimen/dp_100"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_news_isvideo_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_20"
+            android:maxWidth="@dimen/dp_20"
+            android:src="@mipmap/ic_video_play"
+            app:layout_constraintBottom_toBottomOf="@id/adapter_news_image_iv"
+            app:layout_constraintEnd_toEndOf="@id/adapter_news_image_iv"
+            app:layout_constraintStart_toStartOf="@id/adapter_news_image_iv"
+            app:layout_constraintTop_toTopOf="@id/adapter_news_image_iv" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_news_image_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:background="@color/color_image_num"
+            android:padding="@dimen/dp_2"
+            android:textColor="@color/md_white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/adapter_news_image_iv"
+            app:layout_constraintEnd_toEndOf="@id/adapter_news_image_iv"
+            tools:text="37图" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_news_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_500"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintTop_toBottomOf="@id/adapter_news_title_tv"
+            tools:text="02-14" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="0.2dp"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@color/md_grey_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintStart_toEndOf="@id/adapter_collection_contrary_rb"
+        app:layout_constraintTop_toBottomOf="@id/adapter_news_container_cl" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/adapter_tag_container_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:paddingBottom="@dimen/dp_12"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintStart_toEndOf="@id/adapter_collection_contrary_rb"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_collection_tag_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_30"
+            android:maxWidth="@dimen/dp_30"
+            android:paddingEnd="@dimen/dp_10"
+            android:src="@mipmap/ic_collection_tag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <am.widget.wraplayout.WrapLayout
+            android:id="@+id/adapter_collection_tag_wl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/dp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="7"
+            app:layout_constraintStart_toEndOf="@id/adapter_collection_tag_iv"
+            app:wlyGravity="top"
+            app:wlyHorizontalSpacing="10dp"
+            app:wlyVerticalSpacing="@dimen/dp_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag_tv"
+                android:text="123"
+                android:textColor="@color/md_grey_500" />
+
+        </am.widget.wraplayout.WrapLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_6"
+        android:background="@color/md_grey_100"
+        app:layout_constraintTop_toBottomOf="@id/adapter_tag_container_cl" />
+
+</android.support.constraint.ConstraintLayout>

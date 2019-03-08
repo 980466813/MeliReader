@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_12">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/adapter_reply_icon_iv"
+        android:layout_width="@dimen/dp_28"
+        android:layout_height="@dimen/dp_28"
+        tools:src="@mipmap/ic_user_default_phone" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_reply_name_1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_6"
+        android:textColor="@color/color_click_name"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toEndOf="@id/adapter_reply_icon_iv"
+        tools:text="沐小晗" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/centerFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_6"
+        android:text="回复"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/adapter_reply_name_1_tv" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_reply_name_2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_6"
+        android:textColor="@color/color_click_name"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/centerFlag"
+        tools:text="名字不好取啥都有" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_reply_content_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_6"
+        android:background="@drawable/selector_reply_detail_tv"
+        android:paddingBottom="@dimen/dp_6"
+        android:paddingTop="@dimen/dp_6"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/adapter_reply_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_reply_name_1_tv"
+        tools:text="穿短裙跟保守有冲突吗?" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_reply_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_6"
+        android:textColor="@color/md_grey_500"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/adapter_reply_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_reply_content_tv"
+        tools:text="02-14" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/adapter_reply_like_iv"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:src="@mipmap/ic_like_normal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_reply_like_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_6"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintBottom_toBottomOf="@id/adapter_reply_like_iv"
+        app:layout_constraintEnd_toStartOf="@id/adapter_reply_like_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+
+</android.support.constraint.ConstraintLayout>

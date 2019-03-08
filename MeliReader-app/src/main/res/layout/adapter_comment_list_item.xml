@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_12">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/adapter_recommend_comment_icon_iv"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_user_default_phone" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_recommend_comment_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textColor="@color/color_click_name"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toEndOf="@id/adapter_recommend_comment_icon_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="用户238513010" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_recommend_comment_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toEndOf="@id/adapter_recommend_comment_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_recommend_comment_name_tv"
+        tools:text="我一定要给你幸福，谁都别想拦着！" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_recommend_comment_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textColor="@color/md_grey_500"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/adapter_recommend_comment_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_recommend_comment_content_tv"
+        tools:text="02-08" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_recommend_comment_reply_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="@string/tips_recommend_reply"
+        android:textColor="@color/color_click_name"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/adapter_recommend_comment_date_tv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_recommend_comment_content_tv" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_recommend_comment_like_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_6"
+            android:textColor="@color/md_black_300"
+            android:textSize="@dimen/sp_14"
+            tools:text="5" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_recommend_comment_like_iv"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@mipmap/ic_share" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adapter_recommend_comment_reply_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/adapter_recommend_comment_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_recommend_comment_date_tv"
+        tools:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="match_parent"
+            android:background="@color/md_white"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/adapter_recommend_comment_container_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:background="@drawable/bg_comment_reply_ll"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

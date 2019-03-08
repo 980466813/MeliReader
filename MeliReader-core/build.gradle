@@ -1,0 +1,94 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    greendao {
+        schemaVersion rootProject.ext.android["greendaoSchemaVersion"]   // 指定数据库schema版本
+        daoPackage 'com.lning.melireader.core.repository.db.dao' // 通过gradle插件生成的数据库文件文件的包名
+        targetGenDir 'src/main/java'    // 这就是我们上面说到的自定义生成数据库文件的目录了，可以将生成的文件放到我们的java目录中，
+        // 而不是build中，这样就不用额外的设置资源目录了
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':MeliReader-annotation')
+    api(rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+    }
+    api(rootProject.ext.dependencies["design"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
+    api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["cardview-v7"]
+    api(rootProject.ext.dependencies["rxlifecycle"]) {
+        exclude module: 'rxjava'
+        exclude module: 'jsr305'
+    }
+    api(rootProject.ext.dependencies["rxlifecycle-android"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'rxjava'
+        exclude module: 'rxandroid'
+        exclude module: 'rxlifecycle'
+    }
+    api rootProject.ext.dependencies["annotations"]
+    testImplementation rootProject.ext.dependencies["junit"]
+    androidTestImplementation rootProject.ext.dependencies["test-runner"]
+    androidTestImplementation rootProject.ext.dependencies["test-espresso"]
+    api rootProject.ext.dependencies["wraplayout"]
+    api rootProject.ext.dependencies["constraint"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["smartrefresh"]
+    api rootProject.ext.dependencies["smartrefresh-header"]
+    api rootProject.ext.dependencies["butterknife"]
+    api rootProject.ext.dependencies["eventbus"]
+    api rootProject.ext.dependencies["fragmentation"]
+    api rootProject.ext.dependencies["fragmentation-swipe"]
+    api rootProject.ext.dependencies["greendao-generator"]
+    api rootProject.ext.dependencies["greendao"]
+
+    api(rootProject.ext.dependencies["multitype"]) {
+        exclude group: 'com.android.support'
+    }
+    api rootProject.ext.dependencies["okio"]
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["retrofit-rxjava2"]
+    api rootProject.ext.dependencies["retrofit-scalars"]
+    api rootProject.ext.dependencies["retrofit-gson"]
+    api rootProject.ext.dependencies["retrofit-logging"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxbinding"]
+    api rootProject.ext.dependencies["fastjson"]
+    api rootProject.ext.dependencies['percent-support']
+    api rootProject.ext.dependencies['rxPermissions']
+    api rootProject.ext.dependencies['xrecyclerview']
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+}

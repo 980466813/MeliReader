@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_error"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"> <!-- 避免状态透明上移 -->
+
+    <ImageView
+        android:id="@+id/view_error_iv"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_empty_comment" />
+
+    <TextView
+        android:id="@+id/view_error_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.4"
+        android:text="@string/tip_error" />
+</LinearLayout>

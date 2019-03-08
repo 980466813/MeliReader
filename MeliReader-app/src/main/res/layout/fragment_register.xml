@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/register_back_btn"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector_toolbar_btn"
+        android:minHeight="@dimen/dp_20"
+        android:minWidth="@dimen/dp_20"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/register_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="@string/tips_register_title"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_back_btn" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/register_username_cl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_30"
+        app:layout_constraintTop_toBottomOf="@+id/register_title_tv">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_username_til"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:errorEnabled="true">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/register_username_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="@string/tips_login_phone"
+                android:imeOptions="actionNext"
+                android:inputType="textPhonetic"
+                android:maxLength="16"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/sp_16">
+
+                <requestFocus />
+            </android.support.v7.widget.AppCompatEditText>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/register_clear_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_24"
+            android:maxWidth="@dimen/dp_24"
+            android:src="@drawable/selector_username_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/register_username_til"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_marginEnd="3dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/register_code_cl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@+id/register_username_cl">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_code_til"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_30"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@id/register_send_btn"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/register_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="@string/tips_register_code"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/sp_16" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/register_send_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:src="@drawable/selector_username_btn"
+            android:text="@string/action_register_send_code"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/register_code_til"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/register_password_cl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@+id/register_code_cl">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_password_til"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:passwordToggleEnabled="true">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/register_password_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="@string/tips_Login_password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/md_black"
+                android:textSize="@dimen/sp_16">
+
+            </android.support.v7.widget.AppCompatEditText>
+        </android.support.design.widget.TextInputLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/register_nickname_cl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_cl">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_nickname_til"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/register_nickname_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="@string/tips_register_nickname"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/sp_16">
+
+            </android.support.v7.widget.AppCompatEditText>
+        </android.support.design.widget.TextInputLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/selector_login_btn"
+        android:text="@string/action_register_with_space"
+        android:textColor="@color/md_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_nickname_cl" />
+
+
+</android.support.constraint.ConstraintLayout>

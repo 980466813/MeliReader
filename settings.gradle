@@ -1,0 +1,1 @@
+include ':MeliReader-app', ':MeliReader-core', ':MeliReader-annotation'

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_250"
+    android:background="@color/md_white"
+    android:orientation="vertical">
+
+    <com.lning.melireader.widget.SampleCoverVideo
+        android:id="@+id/adapter_video_list_player_gsy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/adapter_video_list_toolbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:paddingStart="@dimen/dp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/adapter_video_list_player_gsy">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_video_list_icon_iv"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_user_default_phone" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_video_list_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:textColor="@color/md_black_300"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/adapter_video_list_icon_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="剧集能量站" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/adapter_video_list_sub_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_6"
+            android:background="@drawable/selector_sub_cb"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:text="关注"
+            android:textColor="@color/sub_color_selector"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/adapter_video_list_name_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_video_list_comment_iv"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dp_2"
+            android:src="@mipmap/ic_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/adapter_video_list_comment_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_video_list_comment_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/dp_18"
+            android:gravity="center"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/adapter_video_list_share_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="39" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_video_list_share_iv"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_toolbar_dot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

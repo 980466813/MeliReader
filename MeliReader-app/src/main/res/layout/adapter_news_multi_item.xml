@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white"
+    android:maxHeight="@dimen/dp_150"
+    android:paddingEnd="@dimen/dp_12"
+    android:paddingStart="@dimen/dp_12">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_news_multi_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/dp_2"
+        android:maxLines="2"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4"
+        android:textColor="@color/md_black"
+        android:textSize="@dimen/sp_16"
+        tools:text="皮特朱失恋无心直播，Lisa见状让曾小贤救场，结果却笑料百出" />
+
+    <LinearLayout
+        android:id="@+id/adapter_news_multi_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/adapter_news_multi_title_tv">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_news_image_1_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_70"
+            android:padding="@dimen/dp_1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="invisible"
+            tools:padding="1dp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_news_image_2_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_2"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_70"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="invisible" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_news_image_3_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/dp_70"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_news_multi_author_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/md_grey_400"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toBottomOf="@id/adapter_news_multi_ll"
+        tools:text="悠悠哉哉" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_news_multi_comment_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textColor="@color/md_grey_400"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/adapter_news_multi_author_tv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_news_multi_ll"
+        tools:text="11评" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_news_multi_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:textColor="@color/md_grey_400"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@+id/adapter_news_multi_comment_tv"
+        app:layout_constraintTop_toBottomOf="@id/adapter_news_multi_ll"
+        tools:text="4个小时以前" />
+
+
+</android.support.constraint.ConstraintLayout>

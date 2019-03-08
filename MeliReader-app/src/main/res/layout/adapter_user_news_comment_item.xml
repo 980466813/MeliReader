@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/dp_180">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/md_grey_100" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/adapter_user_news_comment_icon_iv"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        tools:src="@mipmap/ic_user_default_phone" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_user_news_comment_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textColor="@color/md_black"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toEndOf="@+id/adapter_user_news_comment_icon_iv"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        tools:text="来啊LIVALL" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_user_news_comment_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textColor="@color/md_grey_500"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@+id/adapter_user_news_comment_icon_iv"
+        app:layout_constraintStart_toEndOf="@+id/adapter_user_news_comment_icon_iv"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_comment_name_tv"
+        tools:text="2天前" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_user_news_comment_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_12"
+        android:paddingStart="@dimen/dp_12"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_comment_icon_iv"
+        tools:text="章子怡妆前妆后差距大，素颜吓呆众人，与梅婷相比甚远" />
+
+    <LinearLayout
+        android:id="@+id/adapter_user_news_info_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_6"
+        android:background="@drawable/bg_common_tag_tv"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_8"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_comment_content_tv">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_user_news_comment_summary_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/md_black_300"
+            android:textSize="@dimen/sp_14"
+            tools:text="我们的星系，也许和宇宙中的许多星系一样，有点像一个贪婪的怪物。银河系的一个中心结构实际上是由另一个星系中诞生的恒星组成的，这些恒星是由很久以前的星系碰撞带来的。" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_6"
+            android:background="@color/md_grey_300" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/adapter_user_news_comment_image_tv"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_square_image"
+                tools:src="@mipmap/ic_launcher" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/adapter_user_news_comment_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_8"
+                android:textColor="@color/md_grey_500"
+                android:textSize="@dimen/sp_14"
+                tools:text="十城桂林：" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adapter_user_news_comment_like_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/adapter_user_news_comment_click_ll"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_info_ll">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/adapter_user_news_comment_like_iv"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_like_normal" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_user_news_comment_like_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_2"
+            android:textSize="@dimen/sp_12"
+            tools:text="0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adapter_user_news_comment_click_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_info_ll">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_comment" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/adapter_user_news_comment_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_2"
+            tools:text="0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adapter_user_news_comment_share_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adapter_user_news_comment_click_ll"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_user_news_info_ll">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_share" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_2"
+            android:text="@string/tips_share"
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

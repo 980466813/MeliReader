@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_loading_dialog"
+    android:elevation="2dp"
+    android:paddingBottom="@dimen/dp_2"
+    android:paddingEnd="@dimen/dp_12"
+    android:paddingStart="@dimen/dp_12"
+    android:paddingTop="@dimen/dp_1">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/view_collected_toast_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_4"
+        android:textSize="@dimen/sp_14"
+        tools:text="收藏成功，点击添加标签" />
+
+</LinearLayout>

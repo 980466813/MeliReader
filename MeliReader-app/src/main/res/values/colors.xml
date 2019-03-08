@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/md_selected_blue</color>
+    <color name="colorPrimaryDark">@color/md_selected_blue_dark</color>
+    <color name="colorAccent">@color/md_selected_blue</color>
+    <color name="color_image_num">#60111111</color>
+    <color name="color_click_name">#6a85a9</color>
+
+</resources>

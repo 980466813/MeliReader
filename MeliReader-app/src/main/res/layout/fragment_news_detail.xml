@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/md_white"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/dp_4"
+            android:paddingStart="@dimen/dp_4"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/toolbar_left_btn"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_gravity="start|center_vertical"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:maxHeight="@dimen/dp_40"
+                    android:maxWidth="@dimen/dp_40"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/ic_navigation_back" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/news_detail_publisher_info_cl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    tools:visibility="visible"
+                    android:visibility="invisible">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/news_detail_publisher_icon_iv"
+                        android:layout_width="@dimen/dp_35"
+                        android:layout_height="@dimen/dp_35"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_user_default_phone" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/news_detail_publisher_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/news_detail_publisher_icon_iv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="动漫盘点" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:text="Meli号"
+                        android:textColor="@color/md_black_300"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/news_detail_publisher_icon_iv"
+                        app:layout_constraintTop_toBottomOf="@id/news_detail_publisher_name_tv" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/news_detail_attention_cb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_30"
+                        android:gravity="center"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/selector_sub_item_cb"
+                        android:button="@null"
+                        android:text="已关注"
+                        android:textSize="@dimen/sp_12"
+                        android:textColor="@color/sub_color_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/toolbar_right_btn"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_gravity="right|center_vertical"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:maxHeight="@dimen/dp_40"
+                    android:maxWidth="@dimen/dp_40"
+                    android:padding="@dimen/dp_10"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_toolbar_dot" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/md_grey_100" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/news_detail_scroll_nsv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/view_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dp_6"
+                android:paddingEnd="@dimen/dp_12"
+                android:paddingStart="@dimen/dp_12">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/news_detail_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_12"
+                    android:textColor="@color/md_black_300"
+                    android:textSize="23sp"
+                    android:visibility="gone"
+                    tools:text="火影忍者中“重口味”的四个画面，一对情侣三对基，你知道几个？"
+                    tools:visibility="visible" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/news_detail_publisher_info_2_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/news_detail_publisher_icon_2_iv"
+                        android:layout_width="@dimen/dp_35"
+                        android:layout_height="@dimen/dp_35"
+                        tools:src="@mipmap/ic_user_default_phone" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/news_detail_publisher_name_2_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/news_detail_publisher_icon_2_iv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="动漫盘点·Meli号" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/news_detail_isowner_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:text="@string/tips_news_detail_zhuan"
+                        android:textColor="#6a85a9"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/news_detail_publisher_icon_2_iv"
+                        tools:text="转载" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/news_detail_date_summary_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:maxLines="1"
+                        android:minEms="16"
+                        android:text="@string/tips_news_detail_zhuan"
+                        android:textColor="@color/md_grey_500"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/news_detail_isowner_tv"
+                        tools:text="2小时前·谢谢大家关注美丽的阿..." />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/news_detail_attention_cb_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/selector_sub_item_cb"
+                        android:button="@null"
+                        android:text="已关注"
+                        android:textSize="@dimen/sp_12"
+                        android:textColor="@color/sub_color_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <FrameLayout
+                    android:id="@+id/news_detail_web_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></FrameLayout>
+
+                <am.widget.wraplayout.WrapLayout
+                    android:id="@+id/news_detail_tag_wl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_18"
+                    app:wlyGravity="top"
+                    app:wlyHorizontalSpacing="10dp"
+                    app:wlyVerticalSpacing="@dimen/dp_10">
+
+                </am.widget.wraplayout.WrapLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/news_detail_operate_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginBottom="@dimen/dp_2"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <View
+                        android:id="@+id/centerFlag"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/news_detail_like_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/bg_common_circle_btn"
+                        android:gravity="center"
+                        android:minWidth="@dimen/dp_100"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dp_4"
+                        android:paddingEnd="@dimen/dp_12"
+                        android:paddingStart="@dimen/dp_12"
+                        android:paddingTop="@dimen/dp_4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/centerFlag"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/news_detail_like_btn"
+                            android:layout_width="@dimen/dp_25"
+                            android:layout_height="@dimen/dp_25"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/ic_like_normal" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/news_detail_like_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:paddingEnd="@dimen/dp_4"
+                            android:paddingStart="@dimen/dp_4"
+                            android:scaleType="fitCenter"
+                            tools:text="1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/news_detail_dislike_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/bg_common_circle_btn"
+                        android:gravity="center"
+                        android:minWidth="@dimen/dp_100"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dp_4"
+                        android:paddingEnd="@dimen/dp_12"
+                        android:paddingStart="@dimen/dp_12"
+                        android:paddingTop="@dimen/dp_4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerFlag"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/news_detail_dislike_btn"
+                            android:layout_width="@dimen/dp_25"
+                            android:layout_height="@dimen/dp_25"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/ic_setting_clear" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/news_detail_dislike_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:scaleType="fitCenter"
+                            android:text="@string/tips_dislike" />
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <FrameLayout
+                    android:id="@+id/news_detail_comment_app_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="bottom"
+        android:background="@color/md_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/md_grey_100"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/news_detail_comment_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_6"
+            android:background="@drawable/bg_common_input_et"
+            android:gravity="center_vertical"
+            android:hint="@string/tips_news_detail_write_comment"
+            android:minWidth="@dimen/dp_200"
+            android:paddingStart="@dimen/dp_12"
+            android:typeface="serif"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/news_detail_comment_iv"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_20"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/news_detail_comment_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/news_detail_comment_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_comment_num_tv"
+            android:textColor="@color/md_white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/news_detail_comment_iv"
+            app:layout_constraintEnd_toEndOf="@id/news_detail_comment_iv"
+            tools:text="10" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/news_detail_collection_iv"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_center_collection"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/news_detail_share_iv"
+            app:layout_constraintStart_toEndOf="@id/news_detail_comment_iv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/news_detail_share_iv"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

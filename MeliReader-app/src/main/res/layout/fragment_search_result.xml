@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_result_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_white">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md_white"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/toolbar_left_btn"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:maxHeight="@dimen/dp_40"
+                android:maxWidth="@dimen/dp_40"
+                android:padding="@dimen/dp_10"
+                android:src="@mipmap/ic_navigation_back" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_common_input_et"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp_10"
+                android:paddingStart="@dimen/dp_14">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageFlag"
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_search"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/search_result_keyword_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dp_25"
+                    android:layout_marginStart="@dimen/dp_6"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/tips_please_input_keywords"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/imageFlag">
+
+                </android.support.v7.widget.AppCompatTextView>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/search_result_clear_iv"
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_username_clear_normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/search_result_tab_tl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_35"
+            android:layout_weight="1"
+            android:background="@color/md_white"
+            app:tabGravity="center"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/md_selected_blue"
+            app:tabTextColor="@color/md_grey_500" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/search_result_refresh_srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/search_result_pager_vg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/md_white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/md_white"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingStart="@dimen/dp_4"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:layout_collapseMode="pin">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/toolbar_left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:gravity="center"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:text="@string/tips_cancel"
+            android:textSize="@dimen/sp_14"
+            android:typeface="serif" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/tips_add_tag"
+            android:textColor="@color/md_black_300"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/toolbar_right_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:lines="1"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:text="@string/tips_finish"
+            android:textColor="@color/md_red_300"
+            android:textSize="@dimen/sp_14"
+            android:typeface="serif" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/collection_tag_create_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:counterOverflowTextAppearance="@style/HintError"
+        app:errorEnabled="true"
+        app:hintEnabled="false">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tag_create_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_marginStart="@dimen/dp_12"
+            android:background="@drawable/bg_common_input_et"
+            android:ellipsize="end"
+            android:hint="@string/tips_create_tag"
+            android:imeOptions="actionNext"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_12"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_4"
+            android:singleLine="true"
+            android:textColorHint="#c4c4c4"
+            android:textSize="@dimen/sp_12" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tag_option_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/tips_tag_options"
+        android:textColor="#c4c4c4"
+        android:textSize="@dimen/sp_14"
+        android:visibility="visible" />
+
+    <am.widget.wraplayout.WrapLayout
+        android:id="@+id/tag_wrap_wl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_12"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingTop="@dimen/dp_18"
+        android:visibility="visible"
+        app:wlyGravity="top"
+        app:wlyHorizontalSpacing="10dp"
+        app:wlyVerticalSpacing="@dimen/dp_10">
+
+    </am.widget.wraplayout.WrapLayout>
+</LinearLayout>

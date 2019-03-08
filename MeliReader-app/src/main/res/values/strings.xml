@@ -1,0 +1,106 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">MeliReader</string>
+    <string name="tips_login_title">账号密码登录</string>
+    <string name="tips_new_user_register">新用户注册</string>
+    <string name="tips_login_phone">手机号码</string>
+    <string name="hint_please_input_username">请输入账号</string>
+    <string name="tips_Login_password">密码</string>
+    <string name="hint_please_input_password">请输入密码</string>
+    <string name="action_login_with_space">&#032;登&#032;&#032;录&#032;</string>
+    <string name="action_register_with_space">&#032;注&#032;&#032;册&#032;</string>
+    <string name="tips_login_forget">忘记密码</string>
+    <string name="tips_register_title">新用户注册</string>
+    <string name="action_register_send_code">发送验证码</string>
+    <string name="tips_register_code">验证码</string>
+    <string name="tips_register_nickname">用户昵称</string>
+    <string name="tips_search">搜索</string>
+    <string name="action_user_center_settings">设置</string>
+    <string name="tips_user_center_collection">收藏</string>
+    <string name="tips_user_center_history">历史</string>
+    <string name="tips_user_center_message">消息</string>
+    <string name="tips_user_center_manage">管理Meli号</string>
+    <string name="tips_user_center_attention">我的关注</string>
+    <string name="tips_tab_news">新闻</string>
+    <string name="tips_tab_video">视频</string>
+    <string name="tips_tab_usercenter">我的</string>
+    <string name="tips_user_center_login">登录账号享受更多优质体验</string>
+    <string name="tips_subscript_tb">订阅</string>
+
+
+    <string name="tips_user_attention_template">关注&#032;<xliff:g id="PERCENT_CON_NUM">%d</xliff:g></string>
+    <string name="tips_user_fans_template">粉丝&#032;<xliff:g id="PERCENT_CON_NUM">%d</xliff:g></string>
+    <string name="tips_history_title">历史记录</string>
+    <string name="action_delete">删除</string>
+    <string name="tips_image_num_template"><xliff:g id="IMAGE_NUM">%d</xliff:g>图</string>
+    <string name="tips_news_comment_num_template"><xliff:g id="IMAGE_NUM">%d</xliff:g>评</string>
+    <string name="tips_create_tag">新建标签</string>
+    <string name="tips_add_tag">添加标签</string>
+    <string name="tips_tag_options">可选标签</string>
+    <string name="tips_finish">完成</string>
+    <string name="tips_setting_update">检查更新</string>
+    <string name="tips_setting_about">关于</string>
+    <string name="tips_setting_clear">清理缓存</string>
+    <string name="tips_setting_user">我的帐户</string>
+    <string name="tips_setting_login">登录</string>
+    <string name="tips_setting_text_size_middle">中</string>
+    <string name="tips_setting_text_size">字体大小</string>
+    <string name="tips_wifi_tip">非WIFI流量提醒</string>
+    <string name="tips_setting_logout">退出登录</string>
+    <string name="tips_setting_title">设置</string>
+
+
+    <string name="tips_news_detail_channel_name_template">
+        <Data><![CDATA[<b>%1s</b>·Meli号]]></Data>
+    </string>
+
+    <string name="tips_news_detail_channel_date_summary_template">
+        <xliff:g id="CHANNEL_NAME">%1s</xliff:g>·<xliff:g id="CHANNEL_SUMMARY">%2s</xliff:g>
+    </string>
+    <string name="tips_news_detail_zhuan">转载</string>
+    <string name="tips_news_detail_write_comment">写评论</string>
+    <string name="tips_recommend_reply">回复</string>
+    <string name="tips_news_detail_all_comment">全部评论</string>
+    <string name="tips_news_detail_comment">评论详情</string>
+    <string name="tips_one_reply_null_with_content_template"><Data><![CDATA[<font color="#6a85a9">%1s</font>:<font color="#000000">%2s</font>]]></Data></string>
+    <string name="tips_one_reply_one_with_content_template"><Data><![CDATA[<font color="#6a85a9">%1s</font>回复<font color="#6a85a9">%2s</font>:<font color="#000000">%3s</font>]]></Data></string>
+    <string name="tips_only_one_reply_one_template"><Data><![CDATA[<font color="#6a85a9">%1s</font> 回复 <font color="#6a85a9">%2s</font>]]></Data></string>
+    <string name="tips_share">分享</string>
+    <string name="tips_reply_subtitle_template">回复评论（<xliff:g id="REPLY_SIZE">%d</xliff:g>条）</string>
+    <string name="tips_publish_comment">发表</string>
+    <string name="tips_news_comment_hint">有趣有品的评论将更容易被看到</string>
+    <string name="tips_dislike">不喜欢</string>
+    <string name="tips_please_wait">请稍候再试</string>
+    <string name="tips_already_subscripted">已关注</string>
+    <string name="tips_not_subscript">关注</string>
+
+
+    <string name="tips_comment_detail_tv_template">回复&#032;<xliff:g id="REPLY_SIZE">%s</xliff:g>:</string>
+    <string name="tips_read_count_template"><xliff:g id="READ_COUNT">%d</xliff:g>播放</string>
+    <string name="tips_please_input_keywords">请输入检索内容</string>
+    <string name="tips_clear_search_history">清除搜索历史</string>
+    <string name="test_content">
+    &#032;&#032;&#032;&#032;&#032;&#032;&#032;&#032;春晖的一月 去年在温州，常常看到本刊，觉得很是欢喜。本 刊印刷的形式，也颇别致，更使我有一种美感。今年 到宁波时，听许多朋友说，白马湖的风景怎样怎样好 ，更加向往。虽然于什么艺术都是门外汉，我却怀抱 着爱“美”的热诚，三月二日，我到这儿上课来了。
+    在车上看见“春晖中学校”的路牌，白底黑字的，小 秋千架似的路牌，我便高兴。出了车站，山光水色， 扑面而来，若许我抄前人的话，我真是“应接不暇” 了。于是我便开始了春晖的第一日。
+    走向春晖，有一条狭狭的煤屑路。那黑黑的细小 的颗粒，脚踏上去，便发出一种摩擦的噪音，给我多 少清新的趣味。而最系我心的，是那小小的木桥。桥 黑色，由这边慢慢地隆起，到那边又慢慢地低下去， 故看去似乎很长。我最爱桥上的栏杆，那变形的纹的 栏杆；我在车站门口早就看见了，我爱它的玲珑!桥 之所以可爱，或者便因为这栏杆哩。我在桥上逗留了 好些时。这是一个阴天。山的容光，被云雾遮了一半 ，仿佛淡妆的姑娘。但三面映照起来，也就青得可以 了，映在湖里，白马湖里，接着水光，却另有一番妙 景。我右手是个小湖，左手是个大湖。湖有这样大， 使我自己觉得小了。湖水有这样满，仿佛要漫到我的 脚下。湖在山的趾边，山在湖的唇边；他俩这样亲密 ，湖将山全吞下去了。吞的是青的，吐的是绿的，那 软软的绿呀，绿的是一片，绿的却不安于一片；它无 端地皱起来了。如絮的微痕，界出无数片的绿；闪闪 闪闪的，像好看的眼睛。湖边系着一只小船，四面却 没有一个人，我听见自己的呼吸。想起“野渡无人舟 自横”的诗，真觉物我双忘了。
+    好了，我也该下桥去了；春晖中学校还没有看见 呢。弯了两个弯儿，又过了一重桥。当面有山挡住去 路；山旁只留着极狭极狭的小径。挨着小径，抹过山 角，豁然开朗；春晖的校舍和历落的几处人家，都已 在望了。远远看去，房屋的布置颇疏散有致，绝无拥 挤、局促之感。我缓缓走到校前，白马湖的水也跟我 缓缓地流着。我碰着丐尊先生。他引我过了一座水门 汀的桥，便到了校里。校里最多的是湖，三面潺潺地 流着；其次是草地，看过去芊芊的一片。我是常住城 市的人，到了这种空旷的地方，有莫名的喜悦!乡下 人初进城，往往有许多的惊异，供给笑话的材料；我 这城里人下乡，却也有许多的惊异——我的可笑，或 者竟不下于初进城的乡下人。闲言少叙，且说校里的 房屋、格式、布置固然疏落有味，便是里面的用具， 也无一不显出巧妙的匠意；决无笨伯的手泽。晚上我 到几位同事家去看，壁上有书有画，布置井井，令人 耐坐。这种情形正与学校的布置，自然界的布置是一 致的。美的一致，一致的美，是春晖给我的第一件礼 物。
+    </string>
+    <string name="tips_edit_info">编辑</string>
+    <string name="tips_attention_success">关注成功</string>
+    <string name="tips_cancel_attention_success">取消关注成功</string>
+    <string name="tips_cancel_collection_success">取消收藏成功</string>
+    <string name="tips_collection_success">收藏成功</string>
+    <string name="tips_relation_recommend">相关推荐</string>
+    <string name="tips_user_info">个人信息</string>
+    <string name="tips_user_profile">头像</string>
+    <string name="tips_user_nickname">昵称</string>
+    <string name="tips_user_gender">性别</string>
+    <string name="tips_user_birthday">生日</string>
+    <string name="tips_user_address">所在地</string>
+    <string name="tips_user_signature">个人简介</string>
+    <string name="tips_edit_signature">编辑个人简介</string>
+    <string name="tips_user_male">男</string>
+    <string name="tips_user_female">女</string>
+    <string name="tips_edit_address">编辑个人地址</string>
+    <string name="tips_secret">保密</string>
+
+</resources>

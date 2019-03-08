@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/dp_12"
+    android:paddingStart="@dimen/dp_12">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="@dimen/dp_4"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_shu_line_v"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/adapter_recommend_subtitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="全部评论" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/toolbar_right_btn"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="right"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:maxHeight="@dimen/dp_40"
+        android:maxWidth="@dimen/dp_40"
+        android:padding="@dimen/dp_8"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_setting_clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -2,6 +2,8 @@ package com.lning.melireader.core.repository;
 
 import android.text.TextUtils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.lning.melireader.core.app.constant.ResponseCode;
 import com.lning.melireader.core.repository.db.DatabaseHelper;
 import com.lning.melireader.core.repository.db.pojo.CollectionPojo;
@@ -18,15 +20,18 @@ import com.lning.melireader.core.repository.http.bean.NewsListVo;
 import com.lning.melireader.core.repository.http.bean.NewsVo;
 import com.lning.melireader.core.repository.http.bean.Result;
 import com.lning.melireader.core.repository.http.bean.UserVo;
+import com.lning.melireader.core.repository.http.exception.ApiException;
 import com.lning.melireader.core.repository.preference.PreferencesHelper;
 import com.lning.melireader.core.utils.CommonUtils;
 import com.lning.melireader.core.utils.JsonUtils;
 import com.lning.melireader.core.utils.LogUtils;
 import com.lning.melireader.core.utils.RxUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -132,6 +137,14 @@ public class RepositoryManagerImpl implements RepositoryManager {
     @Override
     public void updateLocalWifiTip(boolean wifiTip) {
         mPreferencesHelper.updateLocalWifiTip(wifiTip);
+    }
+
+    @Override
+    public void deleteAllUserRelationInfo(String userId, String token) {
+        mDatabaseHelper.deleteUserInfo("basic", token);
+        mDatabaseHelper.deleteUserInfo("delete", token);
+        mDatabaseHelper.deleteHistoryByUserId(userId);
+        mDatabaseHelper.deleteCollectionByUserId(userId);
     }
 
     @Override
@@ -340,8 +353,8 @@ public class RepositoryManagerImpl implements RepositoryManager {
     }
 
     @Override
-    public Single<Result> updateUserInfo(final String userId, final String nickname, final byte gender, final String image, final Date birthday, final String address, final String signature) {
-        return mHttpHelper.updateUserInfo(userId, nickname, gender, image, birthday, address, signature)
+    public Single<Result> updateUserInfo(final String userId, Long rid, final String nickname, final byte gender, final String image, final Date birthday, final String address, final String signature) {
+        return mHttpHelper.updateUserInfo(userId, rid, nickname, gender, image, birthday, address, signature)
                 .map(RxUtils.mappingResponseToResult(Object.class))
                 .compose(RxUtils.<Result>rxSchedulerHelper())
                 .doOnSuccess(new Consumer<Result>() {
@@ -350,6 +363,25 @@ public class RepositoryManagerImpl implements RepositoryManager {
                         Long updateResult = mDatabaseHelper.updateUserInfo("basic", getLoginUserToken(), nickname, gender, image, birthday, address, signature);
                     }
                 });
+    }
+
+    @Override
+    public Single<Result> uploadProfile(File file) {
+        return mHttpHelper.uploadProfile(file)
+                .map(new Function<String, Result>() {
+                    @Override
+                    public Result apply(String s) throws Exception {
+                        JSONObject jsonObject = JSONObject.parseObject(s);
+                        Map<String, Object> map = (Map<String, Object>) jsonObject;
+                        if (map != null && map.get("error") != null) {
+                            String value = String.valueOf(map.get("error"));
+                            if ("0".equals(value)) {
+                                return Result.success(map.get("url"));
+                            }
+                        }
+                        throw new ApiException(ResponseCode.ERROR);
+                    }
+                }).compose(RxUtils.<Result>rxSchedulerHelper());
     }
 
     @Override

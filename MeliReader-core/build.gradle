@@ -88,6 +88,7 @@ dependencies {
     api rootProject.ext.dependencies['percent-support']
     api rootProject.ext.dependencies['rxPermissions']
     api rootProject.ext.dependencies['xrecyclerview']
+    api rootProject.ext.dependencies['PickerView']
     annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     annotationProcessor rootProject.ext.dependencies["glide-compiler"]

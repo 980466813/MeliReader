@@ -95,6 +95,40 @@ public class DialogUtils {
         return dialog;
     }
 
+    public static AlertDialog showProfileDialog(Context context, final OnItemClickListener listener) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.view_profile_dialog, null);
+        builder.setView(view);
+        builder.setCancelable(true);
+        final AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        dialog.show();
+        view.findViewById(R.id.view_sort_edit_tag_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.OnItemClick(v, 0);
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.view_sort_delete_collection_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.OnItemClick(v, 1);
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.dialog_cancel_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        return dialog;
+    }
+
     public static AlertDialog showTextSortDialog(Context context, final OnItemClickListener listener) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
         final int[] checkId = {0};

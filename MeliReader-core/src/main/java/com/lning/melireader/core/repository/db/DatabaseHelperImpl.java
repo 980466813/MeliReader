@@ -78,6 +78,7 @@ public class DatabaseHelperImpl implements DatabaseHelper {
     public Long insertUserInfo(String type, String token, UserVo userVo) {
         userVo.setType(type);
         userVo.setToken(token);
+        deleteUserInfo(type, token);
         return daoSession.getUserVoDao().insertOrReplace(userVo);
     }
 
@@ -360,6 +361,16 @@ public class DatabaseHelperImpl implements DatabaseHelper {
             return 1L;
         }
         return -1L;
+    }
+
+    @Override
+    public Long deleteCollectionByUserId(String userId) {
+        QueryBuilder<CollectionPojo> queryBuilder = daoSession.getCollectionPojoDao().queryBuilder().where(CollectionPojoDao.Properties.UserId.eq(userId));
+        List<CollectionPojo> list = queryBuilder.build().list();
+        daoSession.getCollectionPojoDao().deleteInTx(list);
+        List<TagPojo> list1 = daoSession.getTagPojoDao().queryBuilder().where(TagPojoDao.Properties.UserId.eq(userId)).build().list();
+        daoSession.getTagPojoDao().deleteInTx(list1);
+        return 1L;
     }
 
     @Override

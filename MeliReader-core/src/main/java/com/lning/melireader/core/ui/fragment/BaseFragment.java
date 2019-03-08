@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lning.melireader.core.R;
 import com.lning.melireader.core.app.base.lifecycleable.FragmentLifecycleable;
+import com.lning.melireader.core.app.constant.TokenInvalid;
 import com.lning.melireader.core.app.di.component.AppComponent;
 import com.lning.melireader.core.mvp.BasePresenter;
 import com.lning.melireader.core.mvp.IView;
@@ -116,7 +117,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends SwipeBackFra
     @Override
     public void dismissDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
         }
     }
 
@@ -294,6 +295,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends SwipeBackFra
 
     protected int getMenuId() {
         return 0;
+    }
+
+    protected void onTokenError(TokenInvalid invalid) {
     }
 
     protected void setupFragmentComponent(AppComponent appComponent) {

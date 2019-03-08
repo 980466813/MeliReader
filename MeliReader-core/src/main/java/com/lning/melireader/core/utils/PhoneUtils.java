@@ -44,6 +44,14 @@ public class PhoneUtils {
     }
 
 
+    public static boolean hasSdcard() {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private static String getSystemProperty(String propName) {
         String line;
         BufferedReader input = null;
@@ -66,9 +74,9 @@ public class PhoneUtils {
         return line;
     }
 
-/*  * 文 件 名:  DataCleanManager.java
- * * 描    述:  主要功能有清除内/外缓存，清除数据库，清除sharedPreference，清除files和清除自定义目录
- * */
+    /*  * 文 件 名:  DataCleanManager.java
+     * * 描    述:  主要功能有清除内/外缓存，清除数据库，清除sharedPreference，清除files和清除自定义目录
+     * */
 
     /**
      * * 清除本应用内部缓存(/data/data/com.xxx.xxx/cache) * *

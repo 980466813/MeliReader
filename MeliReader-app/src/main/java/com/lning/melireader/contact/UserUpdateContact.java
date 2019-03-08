@@ -12,7 +12,7 @@ public interface UserUpdateContact {
 
     interface Presenter<V extends View> {
 
-        void updateUserInfo(int resId, String userId, String nickname, byte gender, String address,
+        void updateUserInfo(int resId, String userId, Long roleId, String nickname, byte gender, String address,
                             Date birthday, String signature);
     }
 

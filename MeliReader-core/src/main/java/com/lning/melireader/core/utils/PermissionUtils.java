@@ -16,6 +16,7 @@
 package com.lning.melireader.core.utils;
 
 import android.Manifest;
+import android.os.Environment;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -114,6 +115,10 @@ public class PermissionUtils {
      */
     public static void externalStorage(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    }
+
+    public static void readStorage(RequestPermission requestPermission, RxPermissions rxPermissions) {
+        requestPermission(requestPermission, rxPermissions, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
     }
 
     /**

@@ -1,7 +1,9 @@
 package com.lning.melireader.model;
 
+import com.lning.melireader.app.event.UpdateUserEvent;
 import com.lning.melireader.core.repository.http.bean.UserVo;
 
+import java.io.File;
 import java.util.Date;
 
 import io.reactivex.Single;
@@ -52,12 +54,17 @@ public interface IUserModel {
      */
     Single<Boolean> logout(String username, String mac);
 
+    Single<String> getUserFavouriteChannels(String mac);
+
+
     /**
      * 需要携带Cookie信息
      *
      * @return
      */
-    Single<Boolean> updateUserInfo(String userId, String nickname, byte gender, String image, Date birthday, String address, String signature);
+    Single<Boolean> updateUserInfo(String userId, Long rid, String nickname, byte gender, String image, Date birthday, String address, String signature);
 
-    Single<String> getUserFavouriteChannels(String mac);
+    Single<UpdateUserEvent> uploadProfile(UserVo userVo, File file);
+
+    void clearAllUserInfo();
 }

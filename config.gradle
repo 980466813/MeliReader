@@ -97,7 +97,8 @@ ext {
 
             'videoplayer'           : "com.shuyu:GSYVideoPlayer:6.0.3",
 
-            "sqlcipher"             : "net.zetetic:android-database-sqlcipher:3.5.7@aar"
+            "sqlcipher"             : "net.zetetic:android-database-sqlcipher:3.5.7@aar",
+            "PickerView"            : 'com.contrarywind:Android-PickerView:4.1.2'
     ]
 }
 

@@ -2,9 +2,6 @@ package com.lning.melireader.ui.main.user.info;
 
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,7 +11,6 @@ import com.lning.melireader.app.component.DaggerAppFragmentComponent;
 import com.lning.melireader.app.constant.AppConstant;
 import com.lning.melireader.app.event.UpdateUserEvent;
 import com.lning.melireader.app.module.FragmentModule;
-import com.lning.melireader.contact.UserInfoContact;
 import com.lning.melireader.contact.UserUpdateContact;
 import com.lning.melireader.core.app.di.component.AppComponent;
 import com.lning.melireader.core.repository.http.bean.UserVo;
@@ -22,15 +18,10 @@ import com.lning.melireader.core.ui.fragment.BaseFragment;
 import com.lning.melireader.core.utils.CommonUtils;
 import com.lning.melireader.core.utils.LogUtils;
 import com.lning.melireader.presenter.UpdateDialogPresenter;
-import com.lning.melireader.presenter.UserInfoPresenter;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
-import butterknife.OnCheckedChanged;
-import butterknife.OnClick;
 import me.yokeyword.fragmentation.SwipeBackLayout;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -60,6 +51,7 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
     private String userId;
     private UpdateUserEvent event;
     private byte gender = -1;
+    private long roleId = 2;
 
     @Override
     protected int getLayoutId() {
@@ -102,6 +94,7 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
     private void initBasicData() {
         Bundle bundle = getArguments();
         userId = bundle.getString(AppConstant.USER_ID, "");
+        roleId = bundle.getLong(AppConstant.OWNER_ID);
         event = bundle.getParcelable(AppConstant.OBJECT);
     }
 
@@ -118,13 +111,13 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
         } else if (event.viewId == UpdateUserEvent.ADDRESS_TYPE) {
             userVo.setAddress(userInfoAddressIv.getText().toString());
         } else if (event.viewId == UpdateUserEvent.BIRTHDAY_TYPE) {
-            userVo.setBirthday(CommonUtils.formatDate("yyyy-MM-dd",userInfoBirthdayTv.getText().toString()));
+            userVo.setBirthday(CommonUtils.formatDate("yyyy-MM-dd", userInfoBirthdayTv.getText().toString()));
         } else if (event.viewId == UpdateUserEvent.GENDER_TYPE) {
             userVo.setGender(gender);
         } else {
             userVo.setSignature(userInfoSigatureCl.getText().toString());
         }
-        mPresenter.updateUserInfo(event.viewId, userId, userVo.getNickname(), userVo.getGender(), userVo.getAddress(), userVo.getBirthday(), userVo.getSignature());
+        mPresenter.updateUserInfo(event.viewId, userId, roleId, userVo.getNickname(), userVo.getGender(), userVo.getAddress(), userVo.getBirthday(), userVo.getSignature());
     }
 
 
@@ -137,10 +130,11 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
                 .inject(this);
     }
 
-    public static BaseFragment newInstance(String userId, UpdateUserEvent event) {
+    public static BaseFragment newInstance(String userId, Long roldId, UpdateUserEvent event) {
         UpdateDialogFragment fragment = new UpdateDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString(AppConstant.USER_ID, userId);
+        bundle.putLong(AppConstant.OWNER_ID, roldId);
         bundle.putParcelable(AppConstant.OBJECT, event);
         fragment.setArguments(bundle);
         return fragment;
@@ -149,6 +143,7 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
     @Override
     public void onUpdateInfoSuccess(UpdateUserEvent userEvent) {
         LogUtils.d(userEvent.toString());
+        showMessage("编辑信息成功");
         EventBus.getDefault().post(userEvent);
         pop();
     }
@@ -156,9 +151,10 @@ public class UpdateDialogFragment extends BaseFragment<UpdateDialogPresenter>
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if (R.id.user_update_male_rb == i) {
-            gender = 0;
-        } else {
             gender = 1;
+        } else {
+            gender = 2;
         }
     }
+
 }

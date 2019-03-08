@@ -13,6 +13,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -53,13 +54,12 @@ public interface ApiService {
     @Headers({"Domain-Name: MANAGE_URL"})
     @POST("pic/upload")
     @Multipart
-    Single<String> uploadPhoto(@Path("uploadFile") MultipartBody.Part uploadFile);
+    Single<String> uploadPhoto(@Part MultipartBody.Part uploadFile);
 
     @Headers({"Domain-Name: SSO_URL", "Cookie-Name: MELI_TOKEN"})
-    @POST("user/update")
-    @FormUrlEncoded
-    Single<String> updateUserInfo(@Field("id") String userId, @Field("nickname") String nickname, @Field("birthday") Date birthday,
-                                  @Field("image") String image, @Field("address") String address, @Field("signature") String signature);
+    @GET("user/update")
+    Single<String> updateUserInfo(@Query("id") String userId, @Query("roleId") Long rid, @Query("nickname") String nickname, @Query("birthday") Date birthday,
+                                  @Query("profile") String image, @Query("address") String address, @Query("signature") String signature);
 
     @Headers({"Domain-Name: SSO_URL"})
     @POST("send/code/{mobile}")

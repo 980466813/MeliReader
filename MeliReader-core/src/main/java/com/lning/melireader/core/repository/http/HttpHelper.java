@@ -2,6 +2,7 @@ package com.lning.melireader.core.repository.http;
 
 import com.lning.melireader.core.repository.http.bean.Result;
 
+import java.io.File;
 import java.util.Date;
 
 import io.reactivex.Single;
@@ -17,7 +18,9 @@ public interface HttpHelper {
 
     Single<String> getUserInfoByUserId(String type, String token, String userId, String ownerId);
 
-    Single<String> updateUserInfo(String userId, String nickname, byte gender, String image, Date birthday, String address, String signature);
+    Single<String> updateUserInfo(String userId, Long rid, String nickname, byte gender, String image, Date birthday, String address, String signature);
+
+    Single<String> uploadProfile(File file);
 
     Single<String> login(String username, String password, String mac);
 

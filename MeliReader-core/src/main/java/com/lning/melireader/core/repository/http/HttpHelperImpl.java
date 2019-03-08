@@ -1,7 +1,11 @@
 package com.lning.melireader.core.repository.http;
 
 import com.lning.melireader.core.repository.http.service.ApiService;
+import com.lning.melireader.core.utils.LogUtils;
+import com.lning.melireader.core.utils.RetrofitUtils;
+import com.lning.melireader.core.utils.RxUtils;
 
+import java.io.File;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -35,9 +39,14 @@ public class HttpHelperImpl implements HttpHelper {
     }
 
     @Override
-    public Single<String> updateUserInfo(String userId, String nickname, byte gender, String image, Date birthday
+    public Single<String> updateUserInfo(String userId, Long rid, String nickname, byte gender, String image, Date birthday
             , String address, String signature) {
-        return mApiService.updateUserInfo(userId, nickname, birthday, image, address, signature);
+        return mApiService.updateUserInfo(userId, rid, nickname, birthday, image, address, signature);
+    }
+
+    @Override
+    public Single<String> uploadProfile(File file) {
+        return mApiService.uploadPhoto(RetrofitUtils.createMultipart("uploadFile", file));
     }
 
     @Override

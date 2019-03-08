@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyDialog"
+    android:layout_width="@dimen/dp_300"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_loading_dialog"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/view_sort_edit_tag_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@drawable/bg_btn_no_radius"
+        android:button="@null"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/tips_edit_tag"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/md_grey_300" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/view_sort_delete_collection_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@drawable/bg_btn_no_radius"
+        android:button="@null"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/tips_delete_collection"
+        android:textColor="@color/md_black_300"
+        android:textSize="@dimen/sp_14" />
+
+
+</LinearLayout>

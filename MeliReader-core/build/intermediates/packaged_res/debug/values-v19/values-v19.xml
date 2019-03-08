@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/md_black_300</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarSize">@dimen/dp_48</item>
+        <item name="android:windowBackground">@color/md_white</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--避免控件都会顶到状态栏上 -->
+    </style>
+</resources>

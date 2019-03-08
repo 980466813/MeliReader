@@ -3,6 +3,7 @@ package com.lning.melireader.model.impl;
 import android.text.TextUtils;
 
 import com.lning.melireader.app.constant.AppConstant;
+import com.lning.melireader.app.event.UpdateUserEvent;
 import com.lning.melireader.core.app.constant.ResponseCode;
 import com.lning.melireader.core.mvp.BaseModel;
 import com.lning.melireader.core.repository.RepositoryManager;
@@ -15,6 +16,7 @@ import com.lning.melireader.core.utils.RandomUtils;
 import com.lning.melireader.core.utils.RxUtils;
 import com.lning.melireader.model.IUserModel;
 
+import java.io.File;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -316,10 +318,42 @@ public class UserModel extends BaseModel
     }
 
     @Override
-    public Single<Boolean> updateUserInfo(String userId, String nickname, byte gender, String image, Date birthday, String address, String signature) {
-        return mRepositoryManager.updateUserInfo(userId, nickname, gender, image, birthday, address, signature)
+    public Single<Boolean> updateUserInfo(String userId, Long rid, String nickname, byte gender, String image, Date birthday, String address, String signature) {
+        return mRepositoryManager.updateUserInfo(userId, rid, nickname, gender, image, birthday, address, signature)
                 .compose(RxUtils.mappingResultToCheck());
     }
+
+    @Override
+    public Single<UpdateUserEvent> uploadProfile(final UserVo userVo, File file) {
+        return mRepositoryManager.uploadProfile(file)
+                .compose(RxUtils.<String>mappingResultToData())
+                .flatMap(new Function<String, SingleSource<UpdateUserEvent>>() {
+                    @Override
+                    public SingleSource<UpdateUserEvent> apply(final String s) throws Exception {
+                        return updateUserInfo(userVo.getId(), userVo.getRid(), userVo.getNickname(), userVo.getGender()
+                                , s, userVo.getBirthday(), userVo.getAddress(), userVo.getSignature())
+                                .map(new Function<Boolean, UpdateUserEvent>() {
+                                    @Override
+                                    public UpdateUserEvent apply(Boolean aBoolean) throws Exception {
+                                        if (aBoolean) {
+                                            return UpdateUserEvent.createProfileEvent(s);
+                                        }
+                                        throw new ApiException(ResponseCode.ERROR);
+                                    }
+                                });
+                    }
+                });
+    }
+
+    @Override
+    public void clearAllUserInfo() {
+        String token = mRepositoryManager.getLoginUserToken();
+        String userId = mRepositoryManager.getLoginUserId();
+        mRepositoryManager.saveLoginUserToken(null);
+        mRepositoryManager.saveLoginUserId(null);
+        mRepositoryManager.deleteAllUserRelationInfo(userId, token);
+    }
+
 
     public static class Wrapper {
         public String token;

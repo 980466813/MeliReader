@@ -8,6 +8,7 @@ import com.lning.melireader.core.repository.http.bean.NewsVo;
 import com.lning.melireader.core.repository.http.bean.Result;
 import com.lning.melireader.core.repository.http.bean.UserVo;
 
+import java.io.File;
 import java.util.Date;
 
 import io.reactivex.Single;
@@ -49,6 +50,8 @@ public interface RepositoryManager {
 
     void updateLocalWifiTip(boolean wifiTip);
 
+    void deleteAllUserRelationInfo(String userId, String token);
+
     Single<Result> insertHistory(String userId, NewsListVo newsListVo);
 
     Single<Result> deleteHistoryListByUserId(String userId);
@@ -67,8 +70,10 @@ public interface RepositoryManager {
 
     Single<Result> getUserInfoByUserId(String type, String token, String userId, String ownerId);
 
-    Single<Result> updateUserInfo(String userId, String nickname,
+    Single<Result> updateUserInfo(String userId, Long rid, String nickname,
                                   byte gender, String image, Date birthday, String address, String signature);
+
+    Single<Result> uploadProfile(File file);
 
     Single<Result> login(String username, String password, String mac);
 

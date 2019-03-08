@@ -24,56 +24,57 @@ public class UpdateDialogPresenter extends BasePresenter<UpdateDialogFragment, U
     }
 
     @Override
-    public void updateUserInfo(final int resId, final String userId, final String nickname, final byte gender, final String address,
+    public void updateUserInfo(final int resId, final String userId, final Long roleId, final String nickname, final byte gender, final String address,
                                final Date birthday, final String signature) {
         boolean networkAvailable = mMvpView.isNetworkAvailable();
         if (!networkAvailable) {
             mMvpView.showMessage("当前位置电波无法到达...");
+            return;
         }
         mMvpView.showDialog("正在更改...");
-//        mMvpModel.addSubscribe(mMvpModel.updateUserInfo(userId, nickname, gender, null, birthday, address, signature)
-//                .subscribe(new Consumer<Boolean>() {
-//                    @Override
-//                    public void accept(Boolean aBoolean) throws Exception {
-//                        mMvpView.dismissDialog();
-//                        UpdateUserEvent event = null;
-//                        if (resId == UpdateUserEvent.NICKNAME_TYPE) {
-//                            event = UpdateUserEvent.createNicknameEvent(nickname);
-//                        } else if (resId == UpdateUserEvent.ADDRESS_TYPE) {
-//                            event = UpdateUserEvent.createAddressEvent(address);
-//                        } else if (resId == UpdateUserEvent.BIRTHDAY_TYPE) {
-//                            event = UpdateUserEvent.createBirthdayEvent(CommonUtils.formatDate("yyyy-MM-dd", birthday));
-//                        } else if (resId == UpdateUserEvent.GENDER_TYPE) {
-//                            event = UpdateUserEvent.createGenderEvent(gender == 0 ? "男" : gender == 1 ? "女" : "保密");
-//                        } else {
-//                            event = UpdateUserEvent.createSignatureEvent(signature);
-//                        }
-//                        mMvpView.onUpdateInfoSuccess(event);
-//                    }
-//                }, new Consumer<Throwable>() {
-//                    @Override
-//                    public void accept(Throwable throwable) throws Exception {
-//                        handlerApiError(throwable);
-//                    }
-//                }));
-        Observable.timer(500, TimeUnit.MILLISECONDS).subscribe(new Consumer<Long>() {
-            @Override
-            public void accept(Long aLong) throws Exception {
-                mMvpView.dismissDialog();
-                UpdateUserEvent event = null;
-                if (resId == UpdateUserEvent.NICKNAME_TYPE) {
-                    event = UpdateUserEvent.createNicknameEvent(nickname);
-                } else if (resId == UpdateUserEvent.ADDRESS_TYPE) {
-                    event = UpdateUserEvent.createAddressEvent(address);
-                } else if (resId == UpdateUserEvent.BIRTHDAY_TYPE) {
-                    event = UpdateUserEvent.createBirthdayEvent(CommonUtils.formatDate("yyyy-MM-dd", birthday));
-                } else if (resId == UpdateUserEvent.GENDER_TYPE) {
-                    event = UpdateUserEvent.createGenderEvent(gender+"");
-                } else {
-                    event = UpdateUserEvent.createSignatureEvent(signature);
-                }
-                mMvpView.onUpdateInfoSuccess(event);
-            }
-        });
+        mMvpModel.addSubscribe(mMvpModel.updateUserInfo(userId, roleId, nickname, gender, null, birthday, address, signature)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        mMvpView.dismissDialog();
+                        UpdateUserEvent event = null;
+                        if (resId == UpdateUserEvent.NICKNAME_TYPE) {
+                            event = UpdateUserEvent.createNicknameEvent(nickname);
+                        } else if (resId == UpdateUserEvent.ADDRESS_TYPE) {
+                            event = UpdateUserEvent.createAddressEvent(address);
+                        } else if (resId == UpdateUserEvent.BIRTHDAY_TYPE) {
+                            event = UpdateUserEvent.createBirthdayEvent(CommonUtils.formatDate("yyyy-MM-dd", birthday));
+                        } else if (resId == UpdateUserEvent.GENDER_TYPE) {
+                            event = UpdateUserEvent.createGenderEvent(gender == 1 ? "男" : gender == 2 ? "女" : "保密");
+                        } else {
+                            event = UpdateUserEvent.createSignatureEvent(signature);
+                        }
+                        mMvpView.onUpdateInfoSuccess(event);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        handlerApiError(throwable);
+                    }
+                }));
+//        Observable.timer(500, TimeUnit.MILLISECONDS).subscribe(new Consumer<Long>() {
+//            @Override
+//            public void accept(Long aLong) throws Exception {
+//                mMvpView.dismissDialog();
+//                UpdateUserEvent event = null;
+//                if (resId == UpdateUserEvent.NICKNAME_TYPE) {
+//                    event = UpdateUserEvent.createNicknameEvent(nickname);
+//                } else if (resId == UpdateUserEvent.ADDRESS_TYPE) {
+//                    event = UpdateUserEvent.createAddressEvent(address);
+//                } else if (resId == UpdateUserEvent.BIRTHDAY_TYPE) {
+//                    event = UpdateUserEvent.createBirthdayEvent(CommonUtils.formatDate("yyyy-MM-dd", birthday));
+//                } else if (resId == UpdateUserEvent.GENDER_TYPE) {
+//                    event = UpdateUserEvent.createGenderEvent(gender+"");
+//                } else {
+//                    event = UpdateUserEvent.createSignatureEvent(signature);
+//                }
+//                mMvpView.onUpdateInfoSuccess(event);
+//            }
+//        });
     }
 }

@@ -1,0 +1,2 @@
+# Referenced at E:\AndroidWorkSpace\MeliReader\MeliReader-app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:17
+-keep class com.lning.melireader.core.app.MRApplication { <init>(); }

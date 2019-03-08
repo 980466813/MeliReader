@@ -58,6 +58,8 @@ public interface DatabaseHelper {
 
     Long updateCollection(String userId, String newsId, String tag);
 
+    Long deleteCollectionByUserId(String userId);
+
     Long deleteCollectionByUserAndNewsId(String userId, String newsId);
 
     Long insertTag(TagPojo tagPojo);

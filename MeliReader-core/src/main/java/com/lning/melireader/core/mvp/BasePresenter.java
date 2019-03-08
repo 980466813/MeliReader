@@ -83,6 +83,12 @@ public abstract class BasePresenter<V extends IView, M extends IModel>
         mMvpView.showMessage(throwable.getMessage());
     }
 
+
+    public void clearAllRequest() {
+        if (mMvpModel != null)
+            mMvpModel.cancelSubscribe();
+    }
+
     protected void handlerConnectionException() {
 
     }
